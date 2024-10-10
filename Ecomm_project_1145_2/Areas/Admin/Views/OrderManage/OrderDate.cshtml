@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Ecomm_project_1145_2.Model.OrderHeader>
+
+<h2 class="text-primary text-center ">Please Select Date </h2>
+<div class="row">
+    <div class="col-12">
+        @using (Html.BeginForm("OrderDate", "OrderManage", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-3">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" name="startDate" id="startDate" class="form-control" />
+                </div>
+                <div class="col-3">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" name="endDate" id="endDate" class="form-control" />
+                </div>
+                <div class="col-3">
+                    <label for="name">Order Status:</label>
+                <select name="name" class="form-control">
+                    <option value="SelectOrderStatus">Select Order Status</option>
+                    <option value="AllOrders">AllOrder</option>
+                    <option value="Pending">Pending</option>             
+                    <option value="Approved">Approved Orders</option>
+                </select>
+                </div>
+                <div class="col-3">
+                    <br/>
+                    <input type="submit" value="Search" class="btn btn-outline-primary form-control" />
+                </div>
+            </div>
+            
+
+        }
+    </div>
+</div>
+@if (Model != null)
+{
+    <div class="row m-2 p-2">
+        <table class="table table-bordered table-active table-striped bg-primary text-white">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Order Date</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Street Address</th>
+                    <th>Order Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var list in Model)
+                {
+                    <tr>
+                        <td>@list.Name</td>
+                        <td>@list.OrderDate</td>
+                        <td>@list.State</td>
+                        <td>@list.City</td>
+                        <td>@list.StreetAddress</td>
+                        <td>@list.OrderStatus</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+}
+else
+{
+    <p class="text-danger">No Data Found</p>
+}

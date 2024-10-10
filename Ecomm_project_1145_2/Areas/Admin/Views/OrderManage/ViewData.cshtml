@@ -1,0 +1,42 @@
+﻿@model Ecomm_project_1145_2.Model.ViewModels.OrderManageVM
+<div class="row">
+    <div class="col-3 offset-9">
+        <a asp-action="Index" class="btn btn-outline-primary form-control">Back To List</a>
+    </div>
+</div>
+<form method="post">
+
+    @*<input type="hidden" asp-for="OrderDetails.ProductId" />*@
+    <h1 class="text-primary">Order Details</h1>
+
+    @foreach (var list in Model.OrderDetailsList)
+    {
+
+        <div class="container border rounded p-2 m-2">
+            <table class="table table-active table-bordered table-striped">
+                <thead class="bg-primary text-light">
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Qantity</th>
+                        <th>Total Amount</th>
+                        <th>product Image</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <tr>
+                        <td>@list.OrderHeader.Id</td>
+                        <td>@list.Product.Title</td>
+                        <td>@list.Price</td>
+                        <td>@list.Count</td>
+                        <td>@(list.Count*list.Price)</td>
+                        <td width="20%"><img src="@list.Product.ImageUrl" width="100%" class="rounded" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    }
+
+</form>
