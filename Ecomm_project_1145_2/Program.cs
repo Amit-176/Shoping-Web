@@ -46,8 +46,8 @@ builder.Services.AddAuthentication().AddFacebook(options =>
 });
 builder.Services.AddAuthentication().AddGoogle(options =>
 {
-    options.ClientId = "696960988778-4dnmq04vhs1l5ri9sd8jcr1uof04kdhp.apps.googleusercontent.com";
-    options.ClientSecret = "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";
+    options.ClientId = "269705608543-5oqcc7sujgsbiic8ct8kn4sqicqi27ue.apps.googleusercontent.com";
+    options.ClientSecret = "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";
 });
 builder.Services.AddAuthentication().AddTwitter(options =>
 {
